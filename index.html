@@ -175,20 +175,54 @@ fill="#ff7aa2"/>
 
 <section class="button-zone" id="zone">
 <button id="yesBtn">OUI</button>
-<button id="noBtn">non</button>
+<button id="noBtn">même pas en rêve</button>
 </section>
 
 <!-- HINT -->
 <div class="hint" id="hint">N'hésite surtout pas 😬</div>
 
 <section class="result" id="result">
-<h2>Hyper Fier💗</h2>
+<h2>Hyper Fier de nous 💗 Je t'aime </h2>
 <img
 class="fireworks"
 src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cnJ6d2hhemt6YXN3a3U1YnF3d2hhOGh2aXpxc3IxaW5oN3BzNXdhNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PhubuUEqV3wG6GYOC5/giphy.gif"
 alt="Fireworks"
 />
+<p class="fade-in" style="margin-top:12px; font-size:18px; opacity:0.85; text-align:center;">
+Promis, dès que tu rentres, je t'invite à un vrai date 💌
+</p>
 </section>
+<style>
+/* Fade-in pour le texte */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+// Ajouter après le confetti quand on clique sur "OUI"
+const message = document.querySelector('#result p');
+
+yesBtn.addEventListener("click", () => {
+  zone.style.display = "none";
+  hint.style.display = "none"; // cache le hint
+  result.style.display = "block";
+  resizeConfettiCanvas();
+  fullScreenConfetti();
+
+  // fade-in du texte après 0,5s
+  setTimeout(() => {
+    message.classList.add('show');
+  }, 500);
+});
+</script>
+  
 </main>
 
 <script>
